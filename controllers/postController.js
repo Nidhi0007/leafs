@@ -4,6 +4,12 @@ const Follower =require('../models/follower.model');
 module.exports.addPost = async(req,res)=>{
     try {
         const userData = await User.findOne({username:req.body.username});
+        if(!userData){
+            return res.json({
+                message: "User Not Found",
+                data: {}
+              });
+        }
         let data = {
             caption: req.body.caption,
             user:userData.id
@@ -21,6 +27,12 @@ module.exports.addPost = async(req,res)=>{
 module.exports.getPosts = async(req,res)=>{
     try {
         const userData = await User.findOne({username:req.query.username});
+        if(!userData){
+            return res.json({
+                message: "User Not Found",
+                data: {}
+              });
+        }
         const followerData = await Follower.find({follow_by: userData.id});
         const followerIds = followerData.map((item)=> item.follow_to);
         followerIds.push(userData.id)
