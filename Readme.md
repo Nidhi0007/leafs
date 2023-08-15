@@ -23,13 +23,23 @@ To install dependencies, execute the following command:
 ```plaintext
 npm install
 ```
-## Configuring env
+## Configuring envhttps://leafs-dmc5.onrender.com/
 Rename the env_example file to .env
 
 ## Running the Project
 To run the project, execute the following command:
 ```plaintext
 npm run start
+```
+
+## users are already seeded in db
+```
+alex
+jim
+john
+anthony
+ram
+this users can be used for create post, get posts and follow user apis
 ```
 This command will start the project and make it accessible for testing and development.
 
